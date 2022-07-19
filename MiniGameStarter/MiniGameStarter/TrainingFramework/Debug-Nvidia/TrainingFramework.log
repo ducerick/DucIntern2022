@@ -1,0 +1,79 @@
+﻿  Application.cpp
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\application.cpp(51): warning C4244: 'argument': conversion from 'GLint' to 'float', possible loss of data
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\application.cpp(57): warning C4244: 'argument': conversion from 'GLint' to 'float', possible loss of data
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(901): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<int,int,int&,int,int&,float,float,float>(int &&,int &&,int &,int &&,int &,float &&,float &&,float &&)' being compiled
+          with
+          [
+              _Ty=Camera
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<int,int,int&,int,int&,float,float,float>(int &&,int &&,int &,int &&,int &,float &&,float &&,float &&)' being compiled
+          with
+          [
+              _Ty=Camera
+          ]
+  d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\application.cpp(20): note: see reference to function template instantiation 'std::shared_ptr<Camera> std::make_shared<Camera,int,int,int&,int,int&,float,float,float>(int &&,int &&,int &,int &&,int &,float &&,float &&,float &&)' being compiled
+  ResourceManagers.cpp
+  Font.cpp
+  GameButton.cpp
+  Obstacle.cpp
+  Player.cpp
+  Sprite2D.cpp
+  Camera.cpp
+  Sprite3D.cpp
+  Model.cpp
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gameobject\model.cpp(25): warning C4244: 'initializing': conversion from 'std::streamoff' to 'std::size_t', possible loss of data
+  Shader.cpp
+  SpriteAnimation.cpp
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gameobject\spriteanimation.cpp(83): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gameobject\spriteanimation.cpp(88): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gameobject\spriteanimation.cpp(93): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gameobject\spriteanimation.cpp(98): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
+  Text.cpp
+  Texture.cpp
+  GameStateBase.cpp
+  GameStateMachine.cpp
+  GSIntro.cpp
+  GSMenu.cpp
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsmenu.cpp(23): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsmenu.cpp(29): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsmenu.cpp(39): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsmenu.cpp(83): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+  GSPlay.cpp
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsplay.cpp(50): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsplay.cpp(151): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsplay.cpp(232): warning C4065: switch statement contains 'default' but no 'case' labels
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(901): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
+          with
+          [
+              _Ty=Text
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
+          with
+          [
+              _Ty=Text
+          ]
+  d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsplay.cpp(60): note: see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
+  TrainingFramework.cpp
+  Generating Code...
+Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+soloud_static_d.lib(dr_impl.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(dr_impl.obj)' or at 'D:\DucIntern2022\MiniGameStarter\MiniGameStarter\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static_d.lib(soloud_wav.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_wav.obj)' or at 'D:\DucIntern2022\MiniGameStarter\MiniGameStarter\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static_d.lib(stb_vorbis.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(stb_vorbis.obj)' or at 'D:\DucIntern2022\MiniGameStarter\MiniGameStarter\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static_d.lib(soloud.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud.obj)' or at 'D:\DucIntern2022\MiniGameStarter\MiniGameStarter\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static_d.lib(soloud_audiosource.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_audiosource.obj)' or at 'D:\DucIntern2022\MiniGameStarter\MiniGameStarter\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static_d.lib(soloud_core_basicops.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_core_basicops.obj)' or at 'D:\DucIntern2022\MiniGameStarter\MiniGameStarter\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static_d.lib(soloud_core_getters.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_core_getters.obj)' or at 'D:\DucIntern2022\MiniGameStarter\MiniGameStarter\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static_d.lib(soloud_core_setters.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_core_setters.obj)' or at 'D:\DucIntern2022\MiniGameStarter\MiniGameStarter\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static_d.lib(soloud_core_voicegroup.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_core_voicegroup.obj)' or at 'D:\DucIntern2022\MiniGameStarter\MiniGameStarter\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static_d.lib(soloud_core_voiceops.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_core_voiceops.obj)' or at 'D:\DucIntern2022\MiniGameStarter\MiniGameStarter\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static_d.lib(soloud_fader.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_fader.obj)' or at 'D:\DucIntern2022\MiniGameStarter\MiniGameStarter\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static_d.lib(soloud_fft.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_fft.obj)' or at 'D:\DucIntern2022\MiniGameStarter\MiniGameStarter\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static_d.lib(soloud_file.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_file.obj)' or at 'D:\DucIntern2022\MiniGameStarter\MiniGameStarter\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static_d.lib(soloud_thread.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_thread.obj)' or at 'D:\DucIntern2022\MiniGameStarter\MiniGameStarter\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static_d.lib(soloud_winmm.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_winmm.obj)' or at 'D:\DucIntern2022\MiniGameStarter\MiniGameStarter\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static_d.lib(soloud_null.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_null.obj)' or at 'D:\DucIntern2022\MiniGameStarter\MiniGameStarter\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+  TrainingFramework.vcxproj -> D:\DucIntern2022\MiniGameStarter\MiniGameStarter\\BIN-Nvidia\TrainingFramework.exe
+  TrainingFramework.vcxproj -> D:\DucIntern2022\MiniGameStarter\MiniGameStarter\\BIN-Nvidia\TrainingFramework.pdb (Full PDB)

@@ -1,0 +1,31 @@
+﻿  Application.cpp
+d:\ducintern2022-main\ducintern2022-main\minigamestarter\minigamestarter\trainingframework\src\gamemanager\resourcemanagers.h(13): fatal error C1083: Cannot open include file: 'soloud.h': No such file or directory
+  ResourceManagers.cpp
+d:\ducintern2022-main\ducintern2022-main\minigamestarter\minigamestarter\trainingframework\src\gamemanager\resourcemanagers.h(13): fatal error C1083: Cannot open include file: 'soloud.h': No such file or directory
+  Font.cpp
+  GameButton.cpp
+  Sprite2D.cpp
+  Camera.cpp
+  Sprite3D.cpp
+  Model.cpp
+d:\ducintern2022-main\ducintern2022-main\minigamestarter\minigamestarter\trainingframework\src\gameobject\model.cpp(25): warning C4244: 'initializing': conversion from 'std::streamoff' to 'std::size_t', possible loss of data
+  Shader.cpp
+  SpriteAnimation.cpp
+d:\ducintern2022-main\ducintern2022-main\minigamestarter\minigamestarter\trainingframework\src\gameobject\spriteanimation.cpp(82): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
+d:\ducintern2022-main\ducintern2022-main\minigamestarter\minigamestarter\trainingframework\src\gameobject\spriteanimation.cpp(87): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
+d:\ducintern2022-main\ducintern2022-main\minigamestarter\minigamestarter\trainingframework\src\gameobject\spriteanimation.cpp(92): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
+d:\ducintern2022-main\ducintern2022-main\minigamestarter\minigamestarter\trainingframework\src\gameobject\spriteanimation.cpp(97): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
+  Text.cpp
+  Texture.cpp
+  GameStateBase.cpp
+d:\ducintern2022-main\ducintern2022-main\minigamestarter\minigamestarter\trainingframework\src\gamemanager\resourcemanagers.h(13): fatal error C1083: Cannot open include file: 'soloud.h': No such file or directory
+  GameStateMachine.cpp
+d:\ducintern2022-main\ducintern2022-main\minigamestarter\minigamestarter\trainingframework\src\gamemanager\resourcemanagers.h(13): fatal error C1083: Cannot open include file: 'soloud.h': No such file or directory
+  GSIntro.cpp
+d:\ducintern2022-main\ducintern2022-main\minigamestarter\minigamestarter\trainingframework\src\gamemanager\resourcemanagers.h(13): fatal error C1083: Cannot open include file: 'soloud.h': No such file or directory
+  GSMenu.cpp
+d:\ducintern2022-main\ducintern2022-main\minigamestarter\minigamestarter\trainingframework\src\gamemanager\resourcemanagers.h(13): fatal error C1083: Cannot open include file: 'soloud.h': No such file or directory
+  GSPlay.cpp
+d:\ducintern2022-main\ducintern2022-main\minigamestarter\minigamestarter\trainingframework\src\gamemanager\resourcemanagers.h(13): fatal error C1083: Cannot open include file: 'soloud.h': No such file or directory
+  TrainingFramework.cpp
+  Generating Code...
