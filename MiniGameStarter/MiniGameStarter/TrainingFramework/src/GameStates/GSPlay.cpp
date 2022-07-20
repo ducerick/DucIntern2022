@@ -11,6 +11,8 @@
 #include "GameButton.h"
 #include "SpriteAnimation.h"
 #include "Obstacle.h"
+#include "Collision.h"
+
 #define speed 60.0f
 static float delta_x;
 static Vector2 lastTouchEvents;
@@ -31,7 +33,7 @@ GSPlay::~GSPlay()
 void GSPlay::Init()
 {
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
-	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_new_7.tga");
+	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_new_8.tga");
 
 	// background
 	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
@@ -166,6 +168,7 @@ void GSPlay::HandleTouchEvents(float x, float y, bool bIsPressed)
 	}
 
 	if (bIsPressed == false) m_mousePress = false;
+
 }
 
 void GSPlay::HandleMouseMoveEvents(float x, float y)
@@ -226,6 +229,20 @@ void GSPlay::Update(float deltaTime)
 		for (auto it : m_listObstacleLeft)
 		{
 			it->SetSpeed(it, speed, deltaTime);
+			if (Collision::GetInstance()->CheckCollision(it, m_larva)) {
+				Vector2 m_pos = m_larva->Get2DPosition(m_larva);
+				Vector3 m_scale = m_larva->GetScale();
+				if (m_pos.x >= it->GetScale().x) {
+					m_larva->Set2DPosition(it->GetScale().x + m_scale.x /2, m_pos.y);
+				}
+				else if (m_pos.x - m_scale.x / 2 <= it->GetScale().x && m_pos.y <= it->Get2DPosition().y) {
+					m_larva->Set2DPosition(m_pos.x, it->Get2DPosition().y - m_scale.y / 2 - it->GetScale().y / 2);
+				}
+				else if (m_pos.x - m_scale.x / 2 <= it->GetScale().x && m_pos.y > it->Get2DPosition().y) {
+					m_pos.y += speed * deltaTime;
+					m_larva->Set2DPosition(m_pos.x, m_pos.y);
+				}
+			}
 		}
 
 		for (auto it : m_listObstacleRight)

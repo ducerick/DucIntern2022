@@ -33,6 +33,7 @@ public:
 	bool m_mousePress;
 	bool m_intro = true;
 
+
 private:
 	std::shared_ptr<Sprite2D>	m_background;
 	std::shared_ptr<Sprite2D>	m_background2;
