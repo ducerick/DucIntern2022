@@ -14,4 +14,6 @@ public:
 
 	ObstacleType	GetObstacleType() { return m_type; };
 	void			SetType(ObstacleType type) { m_type = type; }
+	void			SetSpeed(std::shared_ptr<Obstacle> m_obstacle, float speed, float deltaTime);
+	void			SwitchType();
 };

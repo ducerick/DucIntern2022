@@ -40,7 +40,8 @@ private:
 	std::list<std::shared_ptr<GameButton>>	m_listButton;
 	std::list<std::shared_ptr<SpriteAnimation>>	m_listAnimation;
 	std::list<std::shared_ptr<SpriteAnimation>>	m_listIntro;
-	std::list<std::shared_ptr<Obstacle>>	m_listObstacle;
+	std::list<std::shared_ptr<Obstacle>>	m_listObstacleLeft;
+	std::list<std::shared_ptr<Obstacle>>	m_listObstacleRight;
 	std::shared_ptr<Player> m_larva;
 	std::shared_ptr<Player> m_introTmp;
 

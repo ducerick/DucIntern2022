@@ -31,7 +31,7 @@ GSPlay::~GSPlay()
 void GSPlay::Init()
 {
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
-	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_new.tga");
+	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_new_7.tga");
 
 	// background
 	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
@@ -72,14 +72,19 @@ void GSPlay::Init()
 	
 	//Obstacle
 	shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
-	texture = ResourceManagers::GetInstance()->GetTexture("brick1_a.tga");
+	texture = ResourceManagers::GetInstance()->GetTexture("tmp.tga");
 	float n = -25;
 	for (int i = 0; i < 21; i++) {
-		std::shared_ptr<Obstacle> m_obstacle = std::make_shared<Obstacle>(model, shader, texture, BRICK);
-		m_obstacle->Set2DPosition(m_obstacle->GetScale().x / 2, n);
+		std::shared_ptr<Obstacle> m_obstacleLeft = std::make_shared<Obstacle>(model, shader, texture, BRICK);
+		std::shared_ptr<Obstacle> m_obstacleRight = std::make_shared<Obstacle>(model, shader, texture, BRICK);
+		m_obstacleLeft->Set2DPosition(m_obstacleLeft->GetScale().x / 2, n);
+		m_obstacleRight->Set2DPosition((float)Globals::screenWidth - m_obstacleRight->GetScale().x / 2, n);
 		n += -50;
-		m_listObstacle.push_back(m_obstacle);
+		m_listObstacleLeft.push_back(m_obstacleLeft);
+		m_listObstacleRight.push_back(m_obstacleRight);
 	}
+
+
 }
 
 void GSPlay::Exit()
@@ -218,11 +223,14 @@ void GSPlay::Update(float deltaTime)
 		}
 		m_background2->Set2DPosition(bg_pos2.x, bg_pos2.y);
 
-		for (auto it : m_listObstacle)
+		for (auto it : m_listObstacleLeft)
 		{
-			Vector2 obstacleMove = it->Get2DPosition();
-			obstacleMove.y += speed*deltaTime;
-			it->Set2DPosition(obstacleMove.x, obstacleMove.y);
+			it->SetSpeed(it, speed, deltaTime);
+		}
+
+		for (auto it : m_listObstacleRight)
+		{
+			it->SetSpeed(it, speed, deltaTime);
 		}
 
 		switch (m_KeyPress)//Handle Key event
@@ -238,7 +246,11 @@ void GSPlay::Update(float deltaTime)
 		{
 			it->Update(deltaTime);
 		}
-		for (auto it : m_listObstacle)
+		for (auto it : m_listObstacleLeft)
+		{
+			it->Update(deltaTime);
+		}
+		for (auto it : m_listObstacleRight)
 		{
 			it->Update(deltaTime);
 		}
@@ -265,7 +277,11 @@ void GSPlay::Draw()
 		{
 			it->Draw();
 		}
-		for (auto it : m_listObstacle)
+		for (auto it : m_listObstacleLeft)
+		{
+			it->Draw();
+		}
+		for (auto it : m_listObstacleRight)
 		{
 			it->Draw();
 		}
