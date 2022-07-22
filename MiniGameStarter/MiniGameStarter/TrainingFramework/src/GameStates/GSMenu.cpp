@@ -50,7 +50,7 @@ void GSMenu::Init()
 	m_textGameName->Set2DPosition(Vector2(60, 200));
 
 	std::string name = "larva_song.wav";
-	//ResourceManagers::GetInstance()->PlaySound(name);
+	ResourceManagers::GetInstance()->PlaySound(name);
 }
 
 void GSMenu::Exit()

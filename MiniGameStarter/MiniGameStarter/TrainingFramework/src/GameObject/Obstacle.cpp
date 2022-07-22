@@ -109,12 +109,37 @@ Obstacle::Obstacle(std::shared_ptr<Model> model, std::shared_ptr<Shader> shader,
 		SetType(BRICK);
 		}
 		break;
-	case HOTDOG:
+	case MONSTER1:
+		newTexture = ResourceManagers::GetInstance()->GetTexture("obj1_animation.tga");
+		SetSize(50, 50);
+		SetTexture(newTexture);
 		break;
-	case BANANA:
+	case MONSTER2:
+		newTexture = ResourceManagers::GetInstance()->GetTexture("obj2_animation.tga");
+		SetSize(50, 50);
+		SetTexture(newTexture);
 		break;
-	case SPIKE:
+	case SAUSAGE:
+		newTexture = ResourceManagers::GetInstance()->GetTexture("obj3_animation.tga");
+		SetSize(50, 50);
+		SetTexture(newTexture);
 		break;
+	case PEAR:
+		newTexture = ResourceManagers::GetInstance()->GetTexture("obj4_animation.tga");
+		SetSize(50, 50);
+		SetTexture(newTexture);
+		break;
+	case CANDY:
+		newTexture = ResourceManagers::GetInstance()->GetTexture("obj5_animation.tga");
+		SetSize(50, 50);
+		SetTexture(newTexture);
+		break;
+	case APPLE:
+		newTexture = ResourceManagers::GetInstance()->GetTexture("obj6_animation.tga");
+		SetSize(50, 50);
+		SetTexture(newTexture);
+		break;
+
 	default:
 		break;
 	}

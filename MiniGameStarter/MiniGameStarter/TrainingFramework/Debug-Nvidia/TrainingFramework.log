@@ -1,9 +1,19 @@
-﻿  GSPlay.cpp
-C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(52,45): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(158,35): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(158,32): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(195,84): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(257,3): warning C4065: switch statement contains 'default' but no 'case' labels
+﻿  Collision.cpp
+C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameObject\Collision.cpp(9,16): warning C4244: 'initializing': conversion from 'GLfloat' to 'int', possible loss of data
+C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameObject\Collision.cpp(10,17): warning C4244: 'initializing': conversion from 'GLfloat' to 'int', possible loss of data
+C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameObject\Collision.cpp(11,15): warning C4244: 'initializing': conversion from 'GLfloat' to 'int', possible loss of data
+C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameObject\Collision.cpp(12,18): warning C4244: 'initializing': conversion from 'GLfloat' to 'int', possible loss of data
+C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameObject\Collision.cpp(14,16): warning C4244: 'initializing': conversion from 'GLfloat' to 'int', possible loss of data
+C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameObject\Collision.cpp(15,17): warning C4244: 'initializing': conversion from 'GLfloat' to 'int', possible loss of data
+C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameObject\Collision.cpp(16,15): warning C4244: 'initializing': conversion from 'GLfloat' to 'int', possible loss of data
+C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameObject\Collision.cpp(17,18): warning C4244: 'initializing': conversion from 'GLfloat' to 'int', possible loss of data
+  Obstacle.cpp
+  GSPlay.cpp
+C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(54,45): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(161,35): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(161,32): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(200,84): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(279,3): warning C4065: switch statement contains 'default' but no 'case' labels
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(158,77): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
           with
           [
@@ -24,7 +34,6 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.2
           [
               _Ty=Text
           ]
-C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(62): message : see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
-  GameStateBase.cpp
+C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(64): message : see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
   Generating Code...
   TrainingFramework.vcxproj -> C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\BIN-Nvidia\TrainingFramework.exe

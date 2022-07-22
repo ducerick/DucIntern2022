@@ -1,7 +1,7 @@
 #pragma once
 #include "Sprite2D.h"
 
-enum ObstacleType {BRICK, HOTDOG, BANANA, SPIKE};
+enum ObstacleType {BRICK, MONSTER1, MONSTER2, SAUSAGE, PEAR, CANDY, APPLE};
 
 class Obstacle : public Sprite2D
 {

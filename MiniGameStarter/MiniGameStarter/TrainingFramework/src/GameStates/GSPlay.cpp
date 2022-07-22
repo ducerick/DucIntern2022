@@ -16,6 +16,8 @@
 #define speed 60.0f
 static float delta_x;
 static Vector2 lastTouchEvents;
+float mouse_x;
+float mouse_y;
 
 
 
@@ -68,11 +70,11 @@ void GSPlay::Init()
 	m_larva = std::make_shared<Player>(model, shader, texture, 9, 1, 0, 0.1f);
 	
 	m_larva->Set2DPosition(0, (float)Globals::screenHeight);
-	m_larva->SetSize(30, 100);
+	m_larva->SetSize(30, 70);
 	m_listAnimation.push_back(m_larva);
 	m_KeyPress = 0;
 	
-	//Obstacle
+	//Obstacle BRICK
 	shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
 	texture = ResourceManagers::GetInstance()->GetTexture("tmp.tga");
 	float n = -25;
@@ -85,6 +87,7 @@ void GSPlay::Init()
 		m_listObstacleLeft.push_back(m_obstacleLeft);
 		m_listObstacleRight.push_back(m_obstacleRight);
 	}
+
 
 
 }
@@ -173,6 +176,8 @@ void GSPlay::HandleTouchEvents(float x, float y, bool bIsPressed)
 
 void GSPlay::HandleMouseMoveEvents(float x, float y)
 {
+	mouse_x = x;
+	mouse_y = y;
 	if (m_mousePress == true) {
 		float d_x = x - lastTouchEvents.x;
 		float d_y = y - lastTouchEvents.y;
@@ -230,9 +235,10 @@ void GSPlay::Update(float deltaTime)
 		{
 			it->SetSpeed(it, speed, deltaTime);
 			if (Collision::GetInstance()->CheckCollision(it, m_larva)) {
+				m_mousePress = false;
 				Vector2 m_pos = m_larva->Get2DPosition(m_larva);
 				Vector3 m_scale = m_larva->GetScale();
-				if (m_pos.x >= it->GetScale().x) {
+				if (m_pos.x >= it->GetScale().x ) {
 					m_larva->Set2DPosition(it->GetScale().x + m_scale.x /2, m_pos.y);
 				}
 				else if (m_pos.x - m_scale.x / 2 <= it->GetScale().x && m_pos.y <= it->Get2DPosition().y) {
@@ -240,14 +246,30 @@ void GSPlay::Update(float deltaTime)
 				}
 				else if (m_pos.x - m_scale.x / 2 <= it->GetScale().x && m_pos.y > it->Get2DPosition().y) {
 					m_pos.y += speed * deltaTime;
-					m_larva->Set2DPosition(m_pos.x, m_pos.y);
-				}
+					m_larva->Set2DPosition(m_pos.x, m_pos.y + 10);
+				} 
 			}
 		}
 
 		for (auto it : m_listObstacleRight)
 		{
 			it->SetSpeed(it, speed, deltaTime);
+			if (Collision::GetInstance()->CheckCollision(it, m_larva)) {
+				m_mousePress = false;
+				float delta = (float)Globals::screenWidth - it->GetScale().x;
+				Vector2 m_pos = m_larva->Get2DPosition(m_larva);
+				Vector3 m_scale = m_larva->GetScale();
+				if (m_pos.x <= delta) {
+					m_larva->Set2DPosition(delta - m_scale.x / 2, m_pos.y);
+				}
+				else if (m_pos.x + m_scale.x / 2 >= delta && m_pos.y <= it->Get2DPosition().y) {
+					m_larva->Set2DPosition(m_pos.x, it->Get2DPosition().y - m_scale.y / 2 - it->GetScale().y / 2);
+				}
+				else if (m_pos.x + m_scale.x / 2 >= delta && m_pos.y > it->Get2DPosition().y) {
+					m_pos.y += speed * deltaTime;
+					m_larva->Set2DPosition(m_pos.x, m_pos.y + 10);
+				}
+			}
 		}
 
 		switch (m_KeyPress)//Handle Key event

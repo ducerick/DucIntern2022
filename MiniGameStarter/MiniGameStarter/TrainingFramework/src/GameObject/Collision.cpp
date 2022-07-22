@@ -11,10 +11,10 @@ bool Collision::CheckCollision(std::shared_ptr<Obstacle> m_obstacle, std::shared
     int top_a = pos_obstalce.y - m_obstacle->GetScale().y / 2;
     int bottom_a = pos_obstalce.y + m_obstacle->GetScale().y/2;
 
-    int left_b = pos_larva.x - m_larva->GetScale().x / 2;
-    int right_b = pos_larva.x + m_larva->GetScale().x/2;
-    int top_b = pos_larva.y - m_larva->GetScale().y / 2;
-    int bottom_b = pos_larva.y + m_larva->GetScale().y/2;
+    int left_b = pos_larva.x - 15;
+    int right_b = pos_larva.x + 15;
+    int top_b = pos_larva.y - 15;
+    int bottom_b = pos_larva.y + 15;
 
     // Case 1: size object 1 < size object 2
     if (left_a > left_b && left_a < right_b)
