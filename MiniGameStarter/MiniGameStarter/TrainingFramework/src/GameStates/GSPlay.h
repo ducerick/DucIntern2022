@@ -32,6 +32,8 @@ public:
 	int m_KeyPress;
 	bool m_mousePress;
 	bool m_intro = true;
+	int score = 0;
+	bool m_update = true;
 
 
 private:
@@ -45,6 +47,10 @@ private:
 	std::list<std::shared_ptr<Obstacle>>	m_listObstacleRight;
 	std::shared_ptr<Player> m_larva;
 	std::shared_ptr<Player> m_introTmp;
+	std::list<std::shared_ptr<Player>>	m_listMonsterLeft;
+	std::list<std::shared_ptr<Player>>	m_listMonsterRight;
+	std::list<std::shared_ptr<Player>>	m_listFoodLeft;
+	std::list<std::shared_ptr<Player>>	m_listFoodRight;
 
 };
 

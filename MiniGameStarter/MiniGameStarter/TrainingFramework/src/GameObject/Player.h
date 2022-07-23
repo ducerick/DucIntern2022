@@ -14,4 +14,6 @@ public:
 
 	bool HandleTouchEvents(float x, float y, bool bIsPressed, std::shared_ptr<Player> m_larva);
 
+	void SetSpeed(std::shared_ptr<Player> m_obj, float speed, float deltaTime);
+
 };

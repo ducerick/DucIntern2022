@@ -246,11 +246,11 @@ void Obstacle::SwitchType() {
 }
 static int i = 1;
 void Obstacle::SetSpeed(std::shared_ptr<Obstacle> m_obstacle, float speed, float deltaTime) {
+
 	Vector2 obstacleMove = m_obstacle->Get2DPosition();
 	obstacleMove.y += speed * deltaTime;
 	
 	if (obstacleMove.y > (float)Globals::screenHeight + m_obstacle->GetScale().y / 2) {
-		printf("%d. %f: %f\n",i , m_obstacle->GetScale().x, obstacleMove.y);
 		m_obstacle->SwitchType();
 		obstacleMove.y -= 21 * m_obstacle->GetScale().y;
 		if (m_obstacle->Get2DPosition().x < (float)Globals::screenWidth / 2) {
@@ -259,11 +259,9 @@ void Obstacle::SetSpeed(std::shared_ptr<Obstacle> m_obstacle, float speed, float
 		else {
 			obstacleMove.x = (float)Globals::screenWidth - m_obstacle->GetScale().x / 2;
 		}
-		printf("%f: %f\n", m_obstacle->GetScale().x, obstacleMove.y);
-		printf("----------------\n");
-		i++;
-		if (i == 22) i = 1;
 	}
 	m_obstacle->Set2DPosition(obstacleMove.x, obstacleMove.y);
 }
+
+
 

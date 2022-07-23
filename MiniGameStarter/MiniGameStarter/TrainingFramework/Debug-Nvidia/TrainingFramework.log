@@ -1,39 +1,19 @@
-﻿  Collision.cpp
-C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameObject\Collision.cpp(9,16): warning C4244: 'initializing': conversion from 'GLfloat' to 'int', possible loss of data
-C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameObject\Collision.cpp(10,17): warning C4244: 'initializing': conversion from 'GLfloat' to 'int', possible loss of data
-C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameObject\Collision.cpp(11,15): warning C4244: 'initializing': conversion from 'GLfloat' to 'int', possible loss of data
-C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameObject\Collision.cpp(12,18): warning C4244: 'initializing': conversion from 'GLfloat' to 'int', possible loss of data
-C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameObject\Collision.cpp(14,16): warning C4244: 'initializing': conversion from 'GLfloat' to 'int', possible loss of data
-C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameObject\Collision.cpp(15,17): warning C4244: 'initializing': conversion from 'GLfloat' to 'int', possible loss of data
-C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameObject\Collision.cpp(16,15): warning C4244: 'initializing': conversion from 'GLfloat' to 'int', possible loss of data
-C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameObject\Collision.cpp(17,18): warning C4244: 'initializing': conversion from 'GLfloat' to 'int', possible loss of data
-  Obstacle.cpp
-  GSPlay.cpp
-C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(54,45): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(161,35): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(161,32): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(200,84): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(279,3): warning C4065: switch statement contains 'default' but no 'case' labels
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(158,77): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=double
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2029): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(_Ty &,std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&) noexcept(false)' being compiled
+﻿  GSGameOver.cpp
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsgameover.cpp(28): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsgameover.cpp(58): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsgameover.cpp(64): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsgameover.cpp(97): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(901): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
           with
           [
               _Ty=Text
           ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2748): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
           with
           [
               _Ty=Text
           ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2748): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
-          with
-          [
-              _Ty=Text
-          ]
-C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(64): message : see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
-  Generating Code...
-  TrainingFramework.vcxproj -> C:\Users\han.glschool2\DucIntern2022\MiniGameStarter\MiniGameStarter\BIN-Nvidia\TrainingFramework.exe
+  d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsgameover.cpp(57): note: see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
+  TrainingFramework.vcxproj -> D:\DucIntern2022\MiniGameStarter\MiniGameStarter\\BIN-Nvidia\TrainingFramework.exe
+  TrainingFramework.vcxproj -> D:\DucIntern2022\MiniGameStarter\MiniGameStarter\\BIN-Nvidia\TrainingFramework.pdb (Full PDB)
