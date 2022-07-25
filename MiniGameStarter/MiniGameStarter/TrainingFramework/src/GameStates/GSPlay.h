@@ -33,7 +33,10 @@ public:
 	bool m_mousePress;
 	bool m_intro = true;
 	int score = 0;
-	bool m_update = true;
+	bool m_continue = true;
+
+	void GameOver();
+	void Level(float x);
 
 
 private:

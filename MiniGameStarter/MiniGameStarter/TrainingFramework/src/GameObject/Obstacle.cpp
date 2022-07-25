@@ -3,10 +3,6 @@
 #include "ResourceManagers.h"
 
 
-char* s[][9] = { "brick1_a", "brick1_b", "brick1_c" , "brick2_a" , "brick2_b" , "brick2_c" , "brick3_a" , "brick3_b" , "brick3_c" , "brick4_a"
-, "brick4_b" , "brick4_c" , "brick5_a" , "brick5_b" , "brick5_c" , "brick6_a" , "brick6_b" , "brick7_a" , "brick7_b" , "brick7_c" };
-
-
 Obstacle::Obstacle(std::shared_ptr<Model> model, std::shared_ptr<Shader> shader, std::shared_ptr<Texture> texture, ObstacleType type)
 	: Sprite2D(model, shader, texture)
 {
@@ -152,7 +148,6 @@ void Obstacle::SwitchType() {
 	int newType;
 	std::shared_ptr<Texture> resetTexture;
 	newType = rand() % 21;
-	printf("newType: %d\n", newType);
 	switch (newType) {
 	case 0:
 		resetTexture = ResourceManagers::GetInstance()->GetTexture("brick1_a.tga");

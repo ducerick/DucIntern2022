@@ -22,14 +22,13 @@ void GSPause::Init()
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
 
 	// btn continue
-	auto texture = ResourceManagers::GetInstance()->GetTexture("btn_next.tga");
+	auto texture = ResourceManagers::GetInstance()->GetTexture("btn_restart.tga");
 	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
 	std::shared_ptr<GameButton> button = std::make_shared<GameButton>(model, shader, texture);
-	button->Set2DPosition(screenWidth / 2, screenHeight / 2);
-	button->SetSize(100, 100);
+	button->Set2DPosition(screenWidth / 2 - 25, screenHeight / 2);
+	button->SetSize(50, 50);
 	button->SetOnClick([]() {
 		GameStateMachine::GetInstance()->PopState();
-		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PLAY);
 	});
 
 	m_listButton.push_back(button);
@@ -37,10 +36,12 @@ void GSPause::Init()
 	//go back to main menu
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_prev.tga");
 	button = std::make_shared<GameButton>(model, shader, texture);
-	button->Set2DPosition(800, 450);
-	button->SetSize(100, 100);
+	button->Set2DPosition(screenWidth / 2 + 25, screenHeight / 2);
+	button->SetSize(50, 50);
 	button->SetOnClick([]() {
 		GameStateMachine::GetInstance()->PopState();
+		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_MENU);
+		Collision::GetInstance()->SetScore(0);
 	});
 	m_listButton.push_back(button);
 
