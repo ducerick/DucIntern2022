@@ -64,8 +64,20 @@ void GSPlay::Init()
 	button->Set2DPosition(Globals::screenWidth - 50, 50);
 	button->SetSize(50, 50);
 	button->SetOnClick([this]() {
-			GameStateMachine::GetInstance()->PopState();
+			GameStateMachine::GetInstance()->ChangeState(StateType::STATE_MENU);
+			ResourceManagers::GetInstance()->StopSound("larva_song.wav");
 		});
+	m_listButton.push_back(button);
+
+	// button pause
+	texture = ResourceManagers::GetInstance()->GetTexture("btn_pause.tga");
+	button = std::make_shared<GameButton>(model, shader, texture);
+	button->Set2DPosition(Globals::screenWidth - 100, 50);
+	button->SetSize(50, 50);
+	button->SetOnClick([this]() {
+		m_update = false;
+		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PAUSE);
+	});
 	m_listButton.push_back(button);
 
 	// score

@@ -2,8 +2,8 @@
 #include "Collision.h"
 
 
-int screenWidth = 480; //need get on Graphic engine
-int screenHeight = 800; //need get on Graphic engine
+float screenWidth = 480; //need get on Graphic engine
+float screenHeight = 800; //need get on Graphic engine
 
 GSGameOver::GSGameOver() : GameStateBase(StateType::STATE_OVER)
 {
@@ -19,7 +19,7 @@ GSGameOver::~GSGameOver()
 
 void GSGameOver::Init()
 {
-	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nft");
+	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
 	auto texture = ResourceManagers::GetInstance()->GetTexture("larva.tga");
 
 	//BackGround
@@ -31,13 +31,25 @@ void GSGameOver::Init()
 	//restart
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_restart.tga");
 	std::shared_ptr<GameButton> button = std::make_shared<GameButton>(model, shader, texture);
-	button->Set2DPosition(400, 450);
+	button->Set2DPosition(screenWidth/2, screenHeight/2);
 	button->SetSize(100, 100);
 	button->SetOnClick([]() {
 		GameStateMachine::GetInstance()->PopState();
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PLAY);
+	});
+
+	// button close
+	texture = ResourceManagers::GetInstance()->GetTexture("btn_close.tga");
+	button = std::make_shared<GameButton>(model, shader, texture);
+	button->Set2DPosition(Globals::screenWidth - 50, 50);
+	button->SetSize(50, 50);
+	button->SetOnClick([this]() {
+		GameStateMachine::GetInstance()->PopState();
+		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_MENU);
+		ResourceManagers::GetInstance()->StopSound("larva_song.wav");
 
 	});
+
 	m_listButton.push_back(button);
 
 	//go back to main menu
@@ -53,15 +65,15 @@ void GSGameOver::Init()
 
 	// "GAME OVER" text
 	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
-	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("arialbd.otf");
-	m_Text_GameOver = std::make_shared< Text>(shader, font, "GAME OVER", TextColor::RED, 3.0);
-	m_Text_GameOver->Set2DPosition(Vector2(screenWidth / 2 - 200, 120));
+	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("Brightly Crush Shine.otf");
+	m_Text_GameOver = std::make_shared< Text>(shader, font, "GAME OVER", TextColor::RED, 2.0);
+	m_Text_GameOver->Set2DPosition(Vector2(screenWidth / 2 - 150, 50));
 
 	// Show score
 	std::string finalscore = std::to_string(Collision::GetInstance()->GetScore());
 
-	m_Text_Score = std::make_shared< Text>(shader, font, "YOUR SCORE: " + finalscore, TextColor::GREEN, 2.0);
-	m_Text_Score->Set2DPosition(Vector2(screenWidth / 2 - 200, 320));
+	m_Text_Score = std::make_shared< Text>(shader, font, "YOUR SCORE: " + finalscore, TextColor::BLUE, 2.0);
+	m_Text_Score->Set2DPosition(Vector2(screenWidth / 2 - 150, 250));
 }
 
 void GSGameOver::Exit()

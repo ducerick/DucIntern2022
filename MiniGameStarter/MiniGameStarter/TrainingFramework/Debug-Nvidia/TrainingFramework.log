@@ -1,19 +1,19 @@
-﻿  GSGameOver.cpp
-d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsgameover.cpp(28): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsgameover.cpp(58): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsgameover.cpp(64): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsgameover.cpp(97): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+﻿  GSPlay.cpp
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsplay.cpp(64): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsplay.cpp(75): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsplay.cpp(230): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsplay.cpp(388): warning C4065: switch statement contains 'default' but no 'case' labels
 c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(901): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[9],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[9],TextColor &&,double &&)' being compiled
           with
           [
               _Ty=Text
           ]
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[9],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[9],TextColor &&,double &&)' being compiled
           with
           [
               _Ty=Text
           ]
-  d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsgameover.cpp(57): note: see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
+  d:\ducintern2022\minigamestarter\minigamestarter\trainingframework\src\gamestates\gsplay.cpp(86): note: see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[9],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[9],TextColor &&,double &&)' being compiled
   TrainingFramework.vcxproj -> D:\DucIntern2022\MiniGameStarter\MiniGameStarter\\BIN-Nvidia\TrainingFramework.exe
   TrainingFramework.vcxproj -> D:\DucIntern2022\MiniGameStarter\MiniGameStarter\\BIN-Nvidia\TrainingFramework.pdb (Full PDB)
