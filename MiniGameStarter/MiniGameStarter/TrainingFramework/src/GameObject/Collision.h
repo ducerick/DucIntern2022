@@ -18,4 +18,5 @@ public:
 	Vector2		GetCollision();
 	void		SetScore(int score) { m_score = score; };
 	int			GetScore() { return m_score; };
+	int			GetmaxScore();
 };

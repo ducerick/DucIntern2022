@@ -39,6 +39,8 @@ public:
 	void AddSound(const std::string& name);
 	void PlaySound(const std::string& name, bool loop = false);
 	void StopSound(const std::string& name);
+	std::string m_highScore;
+
 private:
 	std::map<std::string, std::shared_ptr<Shader>> m_MapShader;
 	std::map<std::string, std::shared_ptr<Texture>> m_MapTexture;

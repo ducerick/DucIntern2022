@@ -6,6 +6,7 @@ float screenWidth = 480; //need get on Graphic engine
 float screenHeight = 800; //need get on Graphic engine
 extern int character;
 
+
 GSGameOver::GSGameOver() : GameStateBase(StateType::STATE_OVER)
 {
 
@@ -59,6 +60,10 @@ void GSGameOver::Init()
 
 	m_listButton.push_back(button);
 
+	// Sound
+	std::string larva_eat = "larva_dead.mp3";
+	ResourceManagers::GetInstance()->PlaySound(larva_eat);
+
 	// "GAME OVER" text
 	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
 	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("Brightly Crush Shine.otf");
@@ -68,8 +73,16 @@ void GSGameOver::Init()
 	// Show score
 	std::string finalscore = std::to_string(Collision::GetInstance()->GetScore());
 
+	// Show highScore
+	std::string highScore = std::to_string(Collision::GetInstance()->GetmaxScore());
+
 	m_Text_Score = std::make_shared< Text>(shader, font, "YOUR SCORE: " + finalscore, TextColor::BLUE, 2.0);
 	m_Text_Score->Set2DPosition(Vector2(screenWidth / 2 - 150, 250));
+
+	m_Text_highScore = std::make_shared< Text>(shader, font, "HIGH SCORE: " + highScore, TextColor::GREEN, 2.0);
+	m_Text_highScore->Set2DPosition(Vector2(screenWidth / 2 - 150, 350));
+
+	//
 
 	Collision::GetInstance()->SetScore(0);
 }
@@ -136,4 +149,5 @@ void GSGameOver::Draw()
 	m_Animation->Draw();
 	m_Text_GameOver->Draw();
 	m_Text_Score->Draw();
+	m_Text_highScore->Draw();
 }

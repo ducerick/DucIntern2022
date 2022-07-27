@@ -29,6 +29,7 @@ private:
 	std::shared_ptr<Player> m_Animation;
 	std::shared_ptr<Text>  m_Text_GameOver;
 	std::shared_ptr<Text>  m_Text_Score;
+	std::shared_ptr<Text>  m_Text_highScore;
 
 };
 

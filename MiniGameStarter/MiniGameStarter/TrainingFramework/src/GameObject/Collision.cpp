@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Obstacle.h"
 #include "Singleton.h"
+#include "ResourceManagers.h"
 
 bool Collision::CheckCollision(std::shared_ptr<Obstacle> m_obstacle, std::shared_ptr<Player> m_larva) {
     Vector2 pos_obstalce = m_obstacle->Get2DPosition();
@@ -186,5 +187,27 @@ void Collision::SetCollision(std::shared_ptr<Player> m_larva) {
 
 Vector2 Collision::GetCollision() {
     return m_collision;
+}
+
+int Collision::GetmaxScore() {
+	FILE* fp;
+	int score;
+	fp = fopen(ResourceManagers::GetInstance()->m_highScore.c_str(), "r");
+	std::string path = ResourceManagers::GetInstance()->m_highScore;
+
+	fscanf(fp, "%d", &score);
+	fclose(fp);
+	int scorePresent = Collision::GetInstance()->GetScore();
+
+	if (score < scorePresent)
+	{
+		fp = fopen(ResourceManagers::GetInstance()->m_highScore.c_str(), "w");
+		fprintf(fp, "%d", scorePresent);
+		fclose(fp);
+		return scorePresent;
+	}
+	else {
+		return score;
+	}
 }
 

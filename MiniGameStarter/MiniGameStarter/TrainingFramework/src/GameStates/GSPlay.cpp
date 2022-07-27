@@ -33,6 +33,9 @@ float mouse_y;
 #define postRight8 -750 + 15
 
 extern int character;
+// Sound
+std::string larva_eat = "larva_eat.mp3";
+std::string larva_play = "larva_play.mp3";
 
 GSPlay::GSPlay()
 {
@@ -46,6 +49,9 @@ GSPlay::~GSPlay()
 
 void GSPlay::Init()
 {
+	ResourceManagers::GetInstance()->StopSound("larva_song.wav");
+	ResourceManagers::GetInstance()->PlaySound(larva_play, true);
+
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
 	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_new_8.tga");
 
@@ -68,6 +74,7 @@ void GSPlay::Init()
 	button->SetOnClick([this]() {
 			GameStateMachine::GetInstance()->ChangeState(StateType::STATE_MENU);
 			ResourceManagers::GetInstance()->StopSound("larva_song.wav");
+			ResourceManagers::GetInstance()->StopSound(larva_play);
 			Collision::GetInstance()->SetScore(0);
 			speed = 60;
 		});
@@ -80,6 +87,7 @@ void GSPlay::Init()
 	button->SetSize(50, 50);
 	button->SetOnClick([this]() {
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PAUSE);
+		ResourceManagers::GetInstance()->StopSound(larva_play);
 	});
 	m_listButton.push_back(button);
 
@@ -289,6 +297,7 @@ void GSPlay::Update(float deltaTime)
 		for (auto it : m_listMonsterLeft) {
 			it->SetSpeed(it, speed, deltaTime);
 			if (Collision::GetInstance()->CheckCollision(it, m_larva)) {
+				ResourceManagers::GetInstance()->StopSound(larva_play);
 				GameOver();
 				GameStateMachine::GetInstance()->ChangeState(StateType::STATE_OVER);
 			}
@@ -297,6 +306,7 @@ void GSPlay::Update(float deltaTime)
 		for (auto it : m_listMonsterRight) {
 			it->SetSpeed(it, speed, deltaTime);
 			if (Collision::GetInstance()->CheckCollision(it, m_larva)) {
+				ResourceManagers::GetInstance()->StopSound(larva_play);
 				GameOver();
 				GameStateMachine::GetInstance()->ChangeState(StateType::STATE_OVER);
 			}
@@ -305,6 +315,7 @@ void GSPlay::Update(float deltaTime)
 		for (auto it : m_listFoodLeft) {
 			it->SetSpeed(it, speed, deltaTime);
 			if (Collision::GetInstance()->CheckCollision(it, m_larva)) {
+				ResourceManagers::GetInstance()->PlaySound(larva_eat);
 				score++;
 				m_score->SetText("Score: " + std::to_string(score));
 				it->SetSize(0, 0);
@@ -315,6 +326,7 @@ void GSPlay::Update(float deltaTime)
 		for (auto it : m_listFoodRight) {
 			it->SetSpeed(it, speed, deltaTime);
 			if (Collision::GetInstance()->CheckCollision(it, m_larva)) {
+				ResourceManagers::GetInstance()->PlaySound(larva_eat);
 				score++;
 				m_score->SetText("Score: " + std::to_string(score));
 				it->SetSize(0, 0);
@@ -377,19 +389,19 @@ void GSPlay::Update(float deltaTime)
 
 		if (score == 5 && m_continue) {
 			Level(15);
-			speed += 10;
+			speed += 20;
 			m_continue = false;
 		} 
 
 		if (score == 10 && !m_continue) {
 			Level(30);
-			speed += 10;
+			speed += 20;
 			m_continue = true;
 		}
 
 		if (score == 15 && m_continue) {
 			Level(-25);
-			speed += 10;
+			speed += 20;
 			m_continue = false;
 		}
 		switch (m_KeyPress)//Handle Key event
