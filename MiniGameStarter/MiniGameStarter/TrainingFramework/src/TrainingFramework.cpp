@@ -5,6 +5,8 @@
 
 int Globals::screenWidth = 480;
 int Globals::screenHeight = 800;
+int character;
+bool button_update = false;
 
 GLint Init(ESContext* esContext)
 {

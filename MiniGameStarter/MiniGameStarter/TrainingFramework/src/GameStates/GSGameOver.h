@@ -25,8 +25,8 @@ public:
 	void Draw() override;
 
 private:
-	std::shared_ptr<Sprite2D> m_BackGround;
 	std::list<std::shared_ptr<GameButton>>	m_listButton;
+	std::shared_ptr<Player> m_Animation;
 	std::shared_ptr<Text>  m_Text_GameOver;
 	std::shared_ptr<Text>  m_Text_Score;
 

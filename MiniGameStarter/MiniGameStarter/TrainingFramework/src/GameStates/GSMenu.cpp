@@ -26,12 +26,33 @@ void GSMenu::Init()
 	// play button
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_play.tga");
 	std::shared_ptr<GameButton> button = std::make_shared<GameButton>(model, shader, texture);
-	button->Set2DPosition(Globals::screenWidth / 2, Globals::screenHeight / 2);
-	button->SetSize(100, 100);
+	button->Set2DPosition(107.5, 750);
+	button->SetSize(50, 50);
 	button->SetOnClick([]() {
 			GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PLAY);
 		});
 	m_listButton.push_back(button);
+
+	//settings button
+	texture = ResourceManagers::GetInstance()->GetTexture("btn_settings.tga");
+	button = std::make_shared<GameButton>(model, shader, texture);
+	button->Set2DPosition(240, 750);
+	button->SetSize(50, 50);
+	button->SetOnClick([]() {
+		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_SETTINGS);
+	});
+	m_listButton.push_back(button);
+
+	//credits button
+	texture = ResourceManagers::GetInstance()->GetTexture("btn_help.tga");
+	button = std::make_shared<GameButton>(model, shader, texture);
+	button->Set2DPosition(372.5, 750);
+	button->SetSize(50, 50);
+	button->SetOnClick([]() {
+		//GameStateMachine::GetInstance()->ChangeState(StateTypes::STATE_Credits);
+	});
+	m_listButton.push_back(button);
+
 
 	// exit button
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_close.tga");

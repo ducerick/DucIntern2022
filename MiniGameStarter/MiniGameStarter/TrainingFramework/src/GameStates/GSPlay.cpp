@@ -32,6 +32,8 @@ float mouse_y;
 #define postRight7 -550 + 15
 #define postRight8 -750 + 15
 
+extern int character;
+
 GSPlay::GSPlay()
 {
 }
@@ -90,6 +92,7 @@ void GSPlay::Init()
 	// Animation
 	shader = ResourceManagers::GetInstance()->GetShader("Animation");
 	texture = ResourceManagers::GetInstance()->GetTexture("larva_actor.tga");
+	if (character == 2) texture = ResourceManagers::GetInstance()->GetTexture("larva_actor2.tga");
 	m_larva = std::make_shared<Player>(model, shader, texture, 9, 1, 0, 0.1f);
 	
 	m_larva->Set2DPosition(0, (float)Globals::screenHeight);
@@ -112,6 +115,31 @@ void GSPlay::Init()
 	}
 
 	Level(0);
+
+	shader = ResourceManagers::GetInstance()->GetShader("Animation");
+	// Food Left
+	texture = ResourceManagers::GetInstance()->GetTexture("obj3_animation.tga");
+	std::shared_ptr<Player> m_sausage = std::make_shared<Player>(model, shader, texture, 1, 1, 0, 0.1f);
+	texture = ResourceManagers::GetInstance()->GetTexture("obj6_animation.tga");
+	std::shared_ptr<Player> m_pear = std::make_shared<Player>(model, shader, texture, 1, 1, 0, 0.1f);
+	m_sausage->Set2DPosition(posLeft1, postRight5);
+	m_sausage->SetSize(30, 40);
+	m_pear->Set2DPosition(posLeft2, postRight6);
+	m_pear->SetSize(30, 40);
+	m_listFoodLeft.push_back(m_sausage);
+	m_listFoodLeft.push_back(m_pear);
+
+	//Food Right
+	texture = ResourceManagers::GetInstance()->GetTexture("obj5_animation.tga");
+	std::shared_ptr<Player> m_candy = std::make_shared<Player>(model, shader, texture, 1, 1, 0, 0.1f);
+	texture = ResourceManagers::GetInstance()->GetTexture("obj4_animation.tga");
+	std::shared_ptr<Player> m_apple = std::make_shared<Player>(model, shader, texture, 1, 1, 0, 0.1f);
+	m_candy->Set2DPosition(posLeft3, postRight7);
+	m_candy->SetSize(30, 40);
+	m_apple->Set2DPosition(posLeft5, postRight8);
+	m_apple->SetSize(30, 40);
+	m_listFoodRight.push_back(m_candy);
+	m_listFoodRight.push_back(m_apple);
 }
 
 void GSPlay::Exit()
@@ -349,19 +377,19 @@ void GSPlay::Update(float deltaTime)
 
 		if (score == 5 && m_continue) {
 			Level(15);
-			speed += 20;
+			speed += 10;
 			m_continue = false;
 		} 
 
 		if (score == 10 && !m_continue) {
 			Level(30);
-			speed += 20;
+			speed += 10;
 			m_continue = true;
 		}
 
 		if (score == 15 && m_continue) {
 			Level(-25);
-			speed += 20;
+			speed += 10;
 			m_continue = false;
 		}
 		switch (m_KeyPress)//Handle Key event
@@ -463,9 +491,9 @@ void GSPlay::Level(float x) {
 	std::shared_ptr<Player> m_monsterLeft1 = std::make_shared<Player>(model, shader, texture, 9, 1, 0, 0.1f);
 	texture = ResourceManagers::GetInstance()->GetTexture("obj2_animation.tga");
 	std::shared_ptr<Player> m_monsterLeft2 = std::make_shared<Player>(model, shader, texture, 9, 1, 0, 0.1f);
-	m_monsterLeft1->Set2DPosition(posLeft1 + x, posRight1 - x);
+	m_monsterLeft1->Set2DPosition(posLeft1, posRight1 - x);
 	m_monsterLeft1->SetSize(25, 35);
-	m_monsterLeft2->Set2DPosition(posLeft2 - x, posRight2 + x);
+	m_monsterLeft2->Set2DPosition(posLeft2 , posRight2 + x);
 	m_monsterLeft2->SetSize(25, 35);
 	m_listMonsterLeft.push_back(m_monsterLeft1);
 	m_listMonsterLeft.push_back(m_monsterLeft2);
@@ -475,37 +503,13 @@ void GSPlay::Level(float x) {
 	std::shared_ptr<Player> m_monsterRight1 = std::make_shared<Player>(model, shader, texture, 9, 1, 0, 0.1f);
 	texture = ResourceManagers::GetInstance()->GetTexture("obj2_animation.tga");
 	std::shared_ptr<Player> m_monsterRight2 = std::make_shared<Player>(model, shader, texture, 9, 1, 0, 0.1f);
-	m_monsterRight1->Set2DPosition(posLeft3 - x, posRight3 + x);
+	m_monsterRight1->Set2DPosition(posLeft3, posRight3 + x);
 	m_monsterRight1->SetSize(25, 35);
-	m_monsterRight2->Set2DPosition(posLeft4 + x, posRight4 - x);
+	m_monsterRight2->Set2DPosition(posLeft4, posRight4 - x);
 	m_monsterRight2->SetSize(25, 35);
 	m_listMonsterRight.push_back(m_monsterRight1);
 	m_listMonsterRight.push_back(m_monsterRight2);
 	m_listMonsterRight.push_back(m_monsterRight2);
-
-	// Food Left
-	texture = ResourceManagers::GetInstance()->GetTexture("obj3_animation.tga");
-	std::shared_ptr<Player> m_sausage = std::make_shared<Player>(model, shader, texture, 1, 1, 0, 0.1f);
-	texture = ResourceManagers::GetInstance()->GetTexture("obj6_animation.tga");
-	std::shared_ptr<Player> m_pear = std::make_shared<Player>(model, shader, texture, 1, 1, 0, 0.1f);
-	m_sausage->Set2DPosition(posLeft1 - x, postRight5 + x);
-	m_sausage->SetSize(30, 40);
-	m_pear->Set2DPosition(posLeft2 + x, postRight6 - x);
-	m_pear->SetSize(30, 40);
-	m_listFoodLeft.push_back(m_sausage);
-	m_listFoodLeft.push_back(m_pear);
-
-	//Food Right
-	texture = ResourceManagers::GetInstance()->GetTexture("obj5_animation.tga");
-	std::shared_ptr<Player> m_candy = std::make_shared<Player>(model, shader, texture, 1, 1, 0, 0.1f);
-	texture = ResourceManagers::GetInstance()->GetTexture("obj4_animation.tga");
-	std::shared_ptr<Player> m_apple = std::make_shared<Player>(model, shader, texture, 1, 1, 0, 0.1f);
-	m_candy->Set2DPosition(posLeft3 - x, postRight7 + x);
-	m_candy->SetSize(30, 40);
-	m_apple->Set2DPosition(posLeft5 - x, postRight8 + x);
-	m_apple->SetSize(30, 40);
-	m_listFoodRight.push_back(m_candy);
-	m_listFoodRight.push_back(m_apple);
 
 }
 
