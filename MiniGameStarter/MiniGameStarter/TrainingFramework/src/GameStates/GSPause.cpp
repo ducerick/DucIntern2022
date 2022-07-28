@@ -29,6 +29,7 @@ void GSPause::Init()
 	button->SetSize(50, 50);
 	button->SetOnClick([]() {
 		GameStateMachine::GetInstance()->PopState();
+		ResourceManagers::GetInstance()->PlaySound("larva_play.mp3", true);
 	});
 
 	m_listButton.push_back(button);

@@ -14,6 +14,7 @@
 #include "Collision.h"
 
 float speed = 60.0;
+float speedDown = 15;
 static float delta_x;
 static Vector2 lastTouchEvents;
 float mouse_x;
@@ -31,6 +32,10 @@ float mouse_y;
 #define posLeft5 (float)Globals::screenWidth - 205 * 2 / 3 - 15
 #define postRight7 -550 + 15
 #define postRight8 -750 + 15
+
+#define LEVEL2
+#define LEVEL3
+#define LEVEL4
 
 extern int character;
 // Sound
@@ -83,13 +88,35 @@ void GSPlay::Init()
 	// button pause
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_pause.tga");
 	button = std::make_shared<GameButton>(model, shader, texture);
-	button->Set2DPosition(Globals::screenWidth - 100, 50);
+	button->Set2DPosition(Globals::screenWidth -50, 100);
 	button->SetSize(50, 50);
 	button->SetOnClick([this]() {
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PAUSE);
 		ResourceManagers::GetInstance()->StopSound(larva_play);
 	});
 	m_listButton.push_back(button);
+
+	// button music
+	auto textureUnmute = ResourceManagers::GetInstance()->GetTexture("btn_sfx.tga");
+	m_buttonMusic = std::make_shared<GameButton>(model, shader, textureUnmute);
+	m_buttonMusic->Set2DPosition(Globals::screenWidth - 50, 150);
+	m_buttonMusic->SetSize(50, 50);
+	m_buttonMusic->SetOnClick([this]() {
+		auto textureUnmute = ResourceManagers::GetInstance()->GetTexture("btn_sfx.tga");
+		auto textureMute = ResourceManagers::GetInstance()->GetTexture("btn_sfx_off.tga");
+		if (m_music == true) {
+			m_music = false;
+			m_buttonMusic->SetTexture(textureMute);
+			ResourceManagers::GetInstance()->StopSound(larva_play);
+		}
+		else {
+			m_music = true;
+			m_buttonMusic->SetTexture(textureUnmute);
+			ResourceManagers::GetInstance()->PlaySound(larva_play, true);
+
+		}
+	});
+	m_listButton.push_back(m_buttonMusic);
 
 	// score
 	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
@@ -275,8 +302,10 @@ void GSPlay::Update(float deltaTime)
 
 	else {
 
-		if (m_larva->Get2DPosition(m_larva).x > 480 || m_larva->Get2DPosition(m_larva).y > 800) {
+
+		if (m_larva->Get2DPosition(m_larva).x > 480 || m_larva->Get2DPosition(m_larva).y > 800 || m_larva->Get2DPosition(m_larva).x < 0 || m_larva->Get2DPosition(m_larva).y < 0) {
 			GameOver();
+			ResourceManagers::GetInstance()->StopSound(larva_play);
 			GameStateMachine::GetInstance()->ChangeState(StateType::STATE_OVER);
 		}
 
@@ -293,6 +322,15 @@ void GSPlay::Update(float deltaTime)
 			bg_pos2.y -= 2 * (float)Globals::screenHeight;
 		}
 		m_background2->Set2DPosition(bg_pos2.x, bg_pos2.y);
+
+		for (auto it : m_listMonsterLeft) {
+			Vector2 pos = it->Get2DPosition(it);
+			pos.x += speed * deltaTime;
+			if (pos.x > 480) {
+				pos.x -= (float)Globals::screenWidth;
+			}
+			it->Set2DPosition(pos.x, pos.y);
+		}
 
 		for (auto it : m_listMonsterLeft) {
 			it->SetSpeed(it, speed, deltaTime);
@@ -334,10 +372,40 @@ void GSPlay::Update(float deltaTime)
 			}
 		}
 
+		int i = 0;
+
 		for (auto it : m_listObstacleLeft)
 		{
+			i++;
 
 			it->SetSpeed(it, speed, deltaTime);
+
+			#ifdef LEVEL2
+			if (i % 5 == 0 && score >= 5) {
+				Vector2 pos = it->Get2DPosition();
+				pos.x += speed * deltaTime;
+				if (pos.x + it->GetScale().x / 2> 480) {
+					pos.x -= 480 + it->GetScale().x;
+				}
+				it->Set2DPosition(pos.x, pos.y);
+				if (Collision::GetInstance()->CheckCollision(it, m_larva)) {
+					m_mousePress = false;
+					Vector2 m_pos = m_larva->Get2DPosition(m_larva);
+					Vector3 m_scale = m_larva->GetScale();
+					if (m_pos.x >= it->GetScale().x/2 + it->Get2DPosition().x) {
+						m_larva->Set2DPosition(it->GetScale().x / 2 + it->Get2DPosition().x + m_scale.x / 2, m_pos.y);
+					}
+					else if (m_pos.x - m_scale.x / 2 <= it->GetScale().x / 2 + it->Get2DPosition().x  && m_pos.y > it->Get2DPosition().y) {
+						m_pos.y += speed * deltaTime;
+						m_larva->Set2DPosition(m_pos.x, m_pos.y + 10);
+					}
+					else if (m_pos.x - m_scale.x / 2 <= it->GetScale().x / 2 + it->Get2DPosition().x  && m_pos.y <= it->Get2DPosition().y) {
+						m_larva->Set2DPosition(m_pos.x, it->Get2DPosition().y - m_scale.y / 2 - it->GetScale().y / 2);
+					}
+				}
+				
+			}
+			#endif // LEVEL2
 
 			if (Collision::GetInstance()->CheckCollision(it, m_larva)) {
 				m_mousePress = false;
@@ -358,7 +426,74 @@ void GSPlay::Update(float deltaTime)
 
 		for (auto it : m_listObstacleRight)
 		{
+			i++;
 			it->SetSpeed(it, speed, deltaTime);
+
+			#ifdef LEVEL3
+			if (i % 8 == 0 && score >= 10 && score < 15) {
+				Vector2 pos = it->Get2DPosition();
+				pos.x -= speed * deltaTime;
+				if (pos.x + it->GetScale().x / 2 <= 0) {
+					pos.x += 480 + it->GetScale().x;
+				}
+				it->Set2DPosition(pos.x, pos.y);
+
+				if (Collision::GetInstance()->CheckCollision(it, m_larva)) {
+					m_mousePress = false;
+					Vector2 m_pos = m_larva->Get2DPosition(m_larva);
+					Vector3 m_scale = m_larva->GetScale();
+					float delta = it->Get2DPosition().x - it->GetScale().x / 2;
+
+					if (m_pos.x - m_scale.x / 2 <= delta) {
+						m_larva->Set2DPosition(delta - m_scale.x / 2, m_pos.y);
+					}
+					else if (m_pos.x + m_scale.x / 2 >= delta && m_pos.y <= it->Get2DPosition().y) {
+						m_larva->Set2DPosition(m_pos.x, it->Get2DPosition().y - m_scale.y / 2 - it->GetScale().y / 2);
+					}
+					else if (m_pos.x + m_scale.x / 2 >= delta && m_pos.y > it->Get2DPosition().y) {
+						m_pos.y += speed * deltaTime;
+						m_larva->Set2DPosition(m_pos.x, m_pos.y + 10);
+					}
+				}
+			}
+
+			#endif // LEVEL3
+
+			#ifdef LEVEL4
+			if (score >= 15) {
+				if (i % 21 == 15 || i % 21 == 16 || i % 21 == 17 || i % 21 == 18 || i % 21 == 19) {
+					Vector2 pos = it->Get2DPosition();
+					pos.x += speedDown * deltaTime;
+					if (pos.x >= it->GetScale().x / 2 + 480) {
+						pos.x -= 480 + it->GetScale().x;
+					}
+					it->Set2DPosition(pos.x, pos.y);
+				}
+				else {
+					Vector2 pos = it->Get2DPosition();
+					pos.x -= speedDown * deltaTime;
+					if (pos.x + it->GetScale().x / 2 <= 0) {
+						pos.x += 480 + it->GetScale().x;
+					}
+					it->Set2DPosition(pos.x, pos.y);
+
+					if (Collision::GetInstance()->CheckCollision(it, m_larva)) {
+						m_mousePress = false;
+						Vector2 m_pos = m_larva->Get2DPosition(m_larva);
+						Vector3 m_scale = m_larva->GetScale();
+						float delta = it->Get2DPosition().x - it->GetScale().x / 2;
+						if (m_pos.x + m_scale.x / 2 >= delta && m_pos.y <= it->Get2DPosition().y) {
+							m_larva->Set2DPosition(m_pos.x, it->Get2DPosition().y - m_scale.y / 2 - it->GetScale().y / 2);
+						}
+						else if (m_pos.x + m_scale.x / 2 >= delta && m_pos.y > it->Get2DPosition().y) {
+							m_pos.y += speedDown * deltaTime;
+							m_larva->Set2DPosition(m_pos.x, m_pos.y + 10);
+						}
+					}
+				}
+			}
+			#endif // LEVEL4
+
 
 			if (Collision::GetInstance()->CheckCollision(it, m_larva)) {
 				m_mousePress = false;
@@ -378,31 +513,25 @@ void GSPlay::Update(float deltaTime)
 			}
 		}
 
-		for (auto it : m_listMonsterLeft) {
-			Vector2 pos = it->Get2DPosition(it);
-			pos.x += speed * deltaTime;
-			if (pos.x > 480) {
-				pos.x -= (float)Globals::screenWidth;
-			}
-			it->Set2DPosition(pos.x, pos.y);
-		}
 
 		if (score == 5 && m_continue) {
 			Level(15);
-			speed += 20;
+			speed += 15;
 			m_continue = false;
+			ResourceManagers::GetInstance()->PlaySound("emergency.mp3");
 		} 
-
 		if (score == 10 && !m_continue) {
 			Level(30);
-			speed += 20;
+			speed += 10;
 			m_continue = true;
+			ResourceManagers::GetInstance()->PlaySound("emergency.mp3");
 		}
 
 		if (score == 15 && m_continue) {
 			Level(-25);
-			speed += 20;
+			speed += 10;
 			m_continue = false;
+			ResourceManagers::GetInstance()->PlaySound("emergency.mp3");
 		}
 		switch (m_KeyPress)//Handle Key event
 		{
@@ -491,7 +620,7 @@ void GSPlay::Draw()
 
 void GSPlay::GameOver() {
 	speed = 60;
-	m_intro == true;
+	m_intro = true;
 	m_larva->Set2DPosition(0, 800);
 }
 

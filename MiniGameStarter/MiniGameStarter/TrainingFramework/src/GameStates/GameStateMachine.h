@@ -13,7 +13,8 @@ enum class StateType
 	STATE_PLAY,
 	STATE_OVER,
 	STATE_PAUSE,
-	STATE_SETTINGS
+	STATE_SETTINGS,
+	STATE_CREDIT
 };
 
 class GameStateMachine : public CSingleton<GameStateMachine>

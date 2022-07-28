@@ -34,6 +34,7 @@ public:
 	bool m_intro = true;
 	int score = 0;
 	bool m_continue = true;
+	bool m_music = true;
 
 	void GameOver();
 	void Level(float x);
@@ -43,6 +44,7 @@ private:
 	std::shared_ptr<Sprite2D>	m_background;
 	std::shared_ptr<Sprite2D>	m_background2;
 	std::shared_ptr<Text>		m_score;
+	std::shared_ptr<GameButton>				m_buttonMusic;
 	std::list<std::shared_ptr<GameButton>>	m_listButton;
 	std::list<std::shared_ptr<SpriteAnimation>>	m_listAnimation;
 	std::list<std::shared_ptr<SpriteAnimation>>	m_listIntro;
@@ -54,6 +56,7 @@ private:
 	std::list<std::shared_ptr<Player>>	m_listMonsterRight;
 	std::list<std::shared_ptr<Player>>	m_listFoodLeft;
 	std::list<std::shared_ptr<Player>>	m_listFoodRight;
+
 
 };
 

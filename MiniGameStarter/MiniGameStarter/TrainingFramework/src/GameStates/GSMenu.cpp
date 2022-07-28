@@ -49,7 +49,7 @@ void GSMenu::Init()
 	button->Set2DPosition(372.5, 750);
 	button->SetSize(50, 50);
 	button->SetOnClick([]() {
-		//GameStateMachine::GetInstance()->ChangeState(StateTypes::STATE_Credits);
+		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_CREDIT);
 	});
 	m_listButton.push_back(button);
 
