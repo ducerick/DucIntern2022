@@ -463,7 +463,7 @@ void GSPlay::Update(float deltaTime)
 			if (score >= 15) {
 				if (i % 21 == 15 || i % 21 == 16 || i % 21 == 17 || i % 21 == 18 || i % 21 == 19) {
 					Vector2 pos = it->Get2DPosition();
-					pos.x += speedDown * deltaTime;
+					pos.x += speed * deltaTime;
 					if (pos.x >= it->GetScale().x / 2 + 480) {
 						pos.x -= 480 + it->GetScale().x;
 					}
